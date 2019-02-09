@@ -6,8 +6,8 @@ import company.Company;
 /**
  * Created by mtumilowicz on 2019-02-09.
  */
-public class Accessor {
-    public static String get() throws Exception {
+class Accessor {
+    private static String get() throws Exception {
         var company = new Company();
 
         var privateField = company.getClass().getDeclaredField("privateField");
@@ -18,8 +18,8 @@ public class Accessor {
 
         return (String) privateField.get(company);
     }
-    
-    public static void set(String newName, Company company) throws Exception {
+
+    private static void set(String newName, Company company) throws Exception {
         var privateField = company.getClass().getDeclaredField("privateField");
 
         Preconditions.checkState(!privateField.canAccess(company));
@@ -27,5 +27,13 @@ public class Accessor {
         Preconditions.checkState(privateField.trySetAccessible());
 
         privateField.set(company, newName);
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(get());
+
+        var company = new Company();
+        set("new value", company);
+        System.out.println(company.getPrivateField());
     }
 }
