@@ -19,6 +19,8 @@ using deep reflection.
     }
     ```
     * **opens** means that module opens package for deep reflection at runtime
+    * **exporting** a package grants the access at compile-time and
+      at runtime, but only for ordinary reflection (not deep-reflection)
     ```
     module accessor {
         requires domain;
