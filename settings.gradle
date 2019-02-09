@@ -1,2 +1,4 @@
 rootProject.name = 'java11-deep-reflection-cross-modules'
+include 'domain'
+include 'accessor'
 

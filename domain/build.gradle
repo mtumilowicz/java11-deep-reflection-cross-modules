@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'java11-deep-reflection-cross-modules'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+ext.moduleName = 'domain'
+
+compileJava {
+    inputs.property("moduleName", moduleName)
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.0")
+}
