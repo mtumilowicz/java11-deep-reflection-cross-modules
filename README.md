@@ -62,11 +62,11 @@ using deep reflection.
             }
         
             public static void main(String[] args) throws Exception {
-                System.out.println(get());
+                System.out.println(get()); // privateField
         
                 var company = new Company();
                 set("new value", company);
-                System.out.println(company.getPrivateField());
+                System.out.println(company.getPrivateField()); // new value
             }
         }
         ```
