@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-deep-reflection-cross-modules.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-deep-reflection-cross-modules)
+
 # java11-deep-reflection-cross-modules
 
 # preview
